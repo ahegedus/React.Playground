@@ -1,16 +1,16 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
-import HomePage from './pages/homepage/homepage.component'
+import HomePage from "./pages/homepage/homepage.component";
 
-import './App.css';
+import "./App.css";
 
 class App extends React.Component {
   render() {
     return (
-      <div className='App'>
+      <div className="App">
         <Switch>
-          <Route path="/tickets/:departmentId" component={HomePage} />
+          <Route exact path="/" component={HomePage} />
         </Switch>
       </div>
     );
