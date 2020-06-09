@@ -18,6 +18,16 @@ firebase.initializeApp(config);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
+/*
+filestore.collection('users')               // all users
+    .doc('vzqzdoA8vasdidNbwfvQ')            // get specific user
+        .collection('cartItems')            // get all cart item for specific user
+            .doc('sCvxgY2khc3qRUMHU1wI')    // get specific cart item for specific user
+
+filestore.collection('/users/vzqzdoA8vasdidNbwfvQ/cartItems')                    // get all cart item for specific user
+filestore.doc('/users/vzqzdoA8vasdidNbwfvQ/cartItems/sCvxgY2khc3qRUMHU1wI')      // get specific cart item for specific user
+*/
+
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({
     prompt: 'select_account'
