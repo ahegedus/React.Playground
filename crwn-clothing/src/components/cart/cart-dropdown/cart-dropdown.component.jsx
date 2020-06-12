@@ -11,7 +11,7 @@ import CartItem from "../../cart-item/cart-item.component";
 
 import "./cart-dropdown.styles.scss";
 
-const CartDropdown = ({ cartItems, history, hideCartPanel }) => (
+const CartDropdown = ({ cartItems, history, dispatch }) => (
   <div className="cart-dropdown">
     <div className="cart-items">
       {cartItems.length ? (
@@ -22,7 +22,7 @@ const CartDropdown = ({ cartItems, history, hideCartPanel }) => (
     </div>
     <CustomButton
       onClick={() => {
-        hideCartPanel();
+        dispatch(toggleCartHidden());
         history.push("/checkout");
       }}
     >
@@ -35,10 +35,4 @@ const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  hideCartPanel: () => dispatch(toggleCartHidden()),
-});
-
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(CartDropdown)
-);
+export default withRouter(connect(mapStateToProps)(CartDropdown));
