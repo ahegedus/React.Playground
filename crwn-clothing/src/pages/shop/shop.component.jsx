@@ -3,14 +3,14 @@ import { Route, Switch } from "react-router-dom";
 
 import "./shop.styles.scss";
 import CollectionsOverview from "../../components/collections-overview/collections-overview.component";
-import CategoryPage from "../category/category.component";
+import CollectionPage from "../collection/collection.component";
 
 const ShopPage = ({ match }) => (
   <div className="shop-page">
     <Switch>
-      <Route exact path={`${match.path}`} component={CollectionsOverview} />
-      <Route path={`${match.path}/:categoryId`} component={CategoryPage} />
-    </Switch>
+      <Route exact path={`${match.path}`} component={CollectionsOverview} />{" "}
+      <Route path={`${match.path}/:collectionId`} component={CollectionPage} />{" "}
+    </Switch>{" "}
   </div>
 );
 
